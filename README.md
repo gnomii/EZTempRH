@@ -2,19 +2,28 @@
 
 ___Note__: this is an crude backup repository of instructions to use __CAIMANICS EzTempRH__ humidity and temperature sensor since they have apparently vanished off of the face of the Internet. Original content by Eloísa Romero & Pablo Bacho_
 
-_At the time of writing, the [original Instructables](https://www.instructables.com/id/Easy-Temperature-and-Humidity-on-Raspberry-Pi/) is still available, but not the Github repository (there is still https://github.com/CAIMANICS/ but it only show two private repositories)._
+_At the time of writing, the [original Instructables](https://www.instructables.com/id/Easy-Temperature-and-Humidity-on-Raspberry-Pi/) is still available, but not the Github project repository (there is still a [CAIMANICS github repo](https://github.com/CAIMANICS/) but it only show two unrelated projects, and no recent activity)._
 
 _So here is my take on trying to salvage some information (as I own one board and I am using it)._
+
+## EzTemp & RH sensor is a small board once manufactured by a Spanish company called CAIMANICS which featured a professional temperature & relative humidity sensor
+
+### Features
+
+EzTemp features a professional-grade Honeywell HIH5030, 3% accurate from 11-89% RH (7% at 0-10% and 90-100%), as well as a 10kOhm 1% thermistor. Sensors are read by a precision 12-bit SAR ADC. You can also connect an external sensor to the ADC to use it on Raspberry Pi.
+
+![photo](./tindie_photo.jpg)
 
 1. Initial setup on the Raspberry
 
     By default, the Raspberry Pi uses the serial port for the shell. We need to disable the serial console to use the EzTemp.
 
     * __Method 1__: raspi-config script
-    
+
         The easiest way to disable the serial console is by running the raspi-config script. Open a shell and type:
 
         ```sudo raspi-config```
+        
         It will show a menu, just go to 8 Advanced Options > A7 Serialand select No.
 
         Now reboot the Pi and go to the next step.
@@ -69,13 +78,13 @@ _So here is my take on trying to salvage some information (as I own one board an
 
     Identify the serial pins on your Raspberry Pi. Then connect:
 
-        RPi GND to EzTemp GND.
+    * RPi GND to EzTemp GND.
 
-        RPi Tx to EzTemp Rx.
+    * RPi Tx to EzTemp Rx.
 
-        RPi Rx to EzTemp Tx.
+    * RPi Rx to EzTemp Tx.
 
-        RPi 3.3V to EzTemp 3.3V.
+    * RPi 3.3V to EzTemp 3.3V.
 
     Notice that a Tx pin must be connected to a Rx pin, and vice-versa.
 
