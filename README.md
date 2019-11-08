@@ -129,3 +129,7 @@ EzTemp features a professional-grade Honeywell HIH5030, 3% accurate from 11-89% 
     Download [raw script from Github](https://github.com/mrouillard/EZTempRH/raw/master/EzTempRH.py).
 
     Tested with Python 2 only at the time of writing.
+
+1. Other references
+
+    A nice article in French on [Framboise314](https://www.framboise314.fr/carte-dextension-humiditetemperature-pour-le-raspberry-pi/)
