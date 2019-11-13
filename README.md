@@ -1,8 +1,8 @@
 # EzTemp & RH sensor by CAIMANICS
 
-___Note__: this is an crude backup repository of instructions to use __CAIMANICS EzTempRH__ humidity and temperature sensor since they have apparently vanished off the face of the Internet. Original content by Eloísa Romero & Pablo Bacho_
+___Note__: this is a crude backup repository of instructions to use __CAIMANICS EzTempRH__ humidity and temperature sensor since they have apparently vanished off the face of the Internet. Original content by Eloísa Romero & Pablo Bacho_
 
-_At the time of writing, the [original Instructables](https://www.instructables.com/id/Easy-Temperature-and-Humidity-on-Raspberry-Pi/) is still available, but not the Github project repository (there is still a [CAIMANICS github repo](https://github.com/CAIMANICS/) but it only show two unrelated projects, and no recent activity)._
+_At the time of writing, the [original Instructables](https://www.instructables.com/id/Easy-Temperature-and-Humidity-on-Raspberry-Pi/) is still available, but not the Github project repository (there is still a [CAIMANICS github repo](https://github.com/CAIMANICS/) but it only shows two unrelated projects, and no recent activity)._
 
 _So here is my take on trying to salvage some information (as I own one board and I am using it)._
 
@@ -16,7 +16,7 @@ EzTemp features a professional-grade Honeywell HIH5030, 3% accurate from 11-89% 
 
 1. Initial setup on the Raspberry
 
-    By default, the Raspberry Pi uses the serial port for the shell. We need to disable the serial console to use the EzTemp.
+    By default, the Raspberry Pi uses the serial port for the shell. We need to disable the serial console to use the EzTemp board.
 
     * __Method 1__: raspi-config script
 
@@ -88,7 +88,7 @@ EzTemp features a professional-grade Honeywell HIH5030, 3% accurate from 11-89% 
 
     Notice that a Tx pin must be connected to a Rx pin, and vice-versa.
 
-    This is how the sensor should be plugged on the the Raspberry GPIO (here only the first 26 pins shown):
+    This is how the sensor should be plugged on the the Raspberry GPIO (here only the first 26 pins are shown):
     ![Schematics](./EzTemp_RH_GPIO_connection.jpg "Schematics")
 
 1. Sample Python script
