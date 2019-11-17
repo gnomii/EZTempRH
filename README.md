@@ -2,7 +2,9 @@
 
 ___Note__: this is a crude backup repository of instructions to use __CAIMANICS EzTempRH__ humidity and temperature sensor since they have apparently vanished off the face of the Internet. Original content by Eloísa Romero & Pablo Bacho_
 
-_At the time of writing, the [original Instructables](https://www.instructables.com/id/Easy-Temperature-and-Humidity-on-Raspberry-Pi/) is still available, but not the Github project repository (there is still a [CAIMANICS github repo](https://github.com/CAIMANICS/) but it only shows two unrelated projects, and no recent activity)._
+~~_At the time of writing, the [original Instructables](https://www.instructables.com/id/Easy-Temperature-and-Humidity-on-Raspberry-Pi/) is still available, but not the Github project repository (there is still a [CAIMANICS github repo](https://github.com/CAIMANICS/) but it only shows two unrelated projects, and no recent activity)._~~
+
+___I finally dug up the original archive : https://github.com/pablobacho/raspberrypi-eztemp___
 
 _So here is my take on trying to salvage some information (as I own one board and I am using it)._
 
