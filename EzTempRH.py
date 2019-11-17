@@ -47,10 +47,4 @@ s = ser.read(4)
 external = (ord(s[1]) << 8) + ord(s[2])
 print 'External:    ' + str(external) + ' / 2048 counts'
 
-ser.write("v")
-s = ser.read(4)
-version = (ord(s[1]) << 8) + ord(s[2])
-print 'Version:     ' + str(version)
-
 ser.close()
-

@@ -91,7 +91,7 @@ EzTemp features a professional-grade Honeywell HIH5030, 3% accurate from 11-89% 
     This is how the sensor should be plugged on the the Raspberry GPIO (here only the first 26 pins shown):
     ![Schematics](./EzTemp_RH_GPIO_connection.jpg "Schematics")
 
-1. Sample Python script
+1. Sample Python2 script
 
     ```python
     import serial
@@ -118,17 +118,58 @@ EzTemp features a professional-grade Honeywell HIH5030, 3% accurate from 11-89% 
     external = (ord(s[1]) << 8) + ord(s[2])
     print 'External:    ' + str(external) + ' / 2048 counts'
 
-    ser.write("v")
-    s = ser.read(4)
-    version = (ord(s[1]) << 8) + ord(s[2])
-    print 'Version:     ' + str(version)
-
     ser.close()
     ```
 
     Download [raw script from Github](https://github.com/mrouillard/EZTempRH/raw/master/EzTempRH.py).
 
-    Tested with Python 2 only at the time of writing.
+    Tested with Python 2 on a Raspberry 2 only at the time of writing.
+
+    __Important note for Raspberry 3+ users:__ in the above script, replace ```/dev/ttyAMA0``` by ```/dev/ttyS0```
+
+1. Sample Python3 script (tested on a Raspberry 3)
+
+    ```python
+    #!/usr/bin/python
+
+    import serial
+
+    # on rpi2: /dev/ttyAMA0
+    # on rpi3: /dev/ttyS0
+    with serial.Serial('/dev/ttyS0', 9600, timeout=1) as ser:
+
+        ser.write(str.encode("v"))
+        s = ser.read(4)
+        version = (s[1] << 8) + s[2]
+        print('EzTemp&RH build ' + str(version))
+
+        ser.write(str.encode("d"))
+        s = ser.read(4)
+        temperature = (s[1] << 8) + s[2]
+        print('Temperature: ' + str(1.0*temperature/10) + 'C')
+
+        ser.write(str.encode("i"))
+        s = ser.read(4)
+        humidity = (s[1] << 8) + s[2]
+        print('Relative Humidity:    ' + str(1.0*humidity/10) + '%')
+
+        ser.write(str.encode("x"))
+        s = ser.read(4)
+        external = (s[1] << 8) + s[2]
+        print('External:    ' + str(external) + ' / 2048 counts')
+
+        ser.close()
+    ```
+    Download [raw script from Github](https://github.com/mrouillard/EZTempRH/raw/master/EzTempRH_python3.py).
+
+    The output will look something like this:
+
+    ```shell
+    EzTemp&RH build 1
+    Temperature: 25.6C
+    Relative Humidity:    42.6%
+    External:    883 / 2048 counts
+    ```
 
 1. Other references
 
